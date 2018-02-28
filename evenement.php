@@ -53,14 +53,17 @@
 					}
 
 					$events = 'SELECT distinct lieu FROM `events`';
+
 					$req = mysqli_query($connection, $events) or die('Erreur SQL !<br />'.$events.'<br />'.mysqli_error($connection));
-				echo "<select name='lieu'>" . PHP_EOL ;
- 				echo "<option>Sélectionnez</option>" . PHP_EOL ;
+
+					echo "<select name='lieu'>" . PHP_EOL ;
+ 					echo "<option>Sélectionnez</option>" . PHP_EOL ;
   
-    			while ($donnees = mysqli_fetch_array($req)) {
-          			echo "<option value=".$donnees['lieu'].">".$donnees['lieu']."</option>" . PHP_EOL ;
-          		}
-     			echo "</select >" ;
+    				while ($donnees = mysqli_fetch_array($req)) {
+          				echo "<option value=".$donnees['lieu'].">".$donnees['lieu']."<option>" . PHP_EOL ;
+          			}
+          			
+     				echo "</select >" ;
 			}
 		?>
 
