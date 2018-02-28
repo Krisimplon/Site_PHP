@@ -13,20 +13,14 @@ session_start();
 <body>
 	<h1>Article de blog</h1>
 	<img src="/images/image3.jpeg" id="logo">
-	<div class="navbar">
-		<?php include('menu.php'); ?>
-	</div>
+	<?php include('menu.php'); ?>
 	<section>
 		<?php
 
 		$id = $_GET['id'];
 
 			if (isset($id)) {
-				$hote = 'localhost'; 
-				$login = 'root'; 
-				$pass = 'simplon8'; 
-				$base = 'exo2PHP'; 
-				$connection = mysqli_connect($hote, $login, $pass, $base);
+				include('bdd.php');
 
 				$articles = "SELECT * FROM `blog` WHERE id = '$id'";
 				$req = mysqli_query($connection, $articles) or die('Erreur SQL !<br />'.$articles.'<br />'.mysqli_error($connection));

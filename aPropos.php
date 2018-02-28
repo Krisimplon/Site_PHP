@@ -13,9 +13,7 @@ session_start();
 <body>
 	<h1>A propos...</h1>
 	<img src="/images/image3.jpeg" id="logo">
-	<div class="navbar">
-		<?php include('menu.php'); ?>
-	</div>
+	<?php include('menu.php'); ?>
 	<section class="textGeneral">
 		<div>
 			<p>

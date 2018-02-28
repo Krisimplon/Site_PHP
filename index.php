@@ -16,9 +16,8 @@ session_start();
 		<img src="/images/image3.jpeg" id="logo">
 	</header>
 	<main>
-		<div class="navbar">
-			<?php include('menu.php'); ?>
-		</div>
+		<?php include('menu.php'); ?>
+
 		<section>
 			<div class="textGeneral"> 
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec posuere vel sapien non varius. Etiam molestie, arcu suscipit facilisis tempus, elit mi auctor ante, sit amet aliquam justo lorem lobortis felis. Aenean mollis mollis lectus ac molestie. Donec pharetra augue justo, in fermentum odio tincidunt quis. Duis condimentum, arcu non viverra finibus, nulla lacus commodo urna, a luctus mauris turpis sit amet diam. Quisque ut accumsan est. Phasellus facilisis porttitor feugiat. 

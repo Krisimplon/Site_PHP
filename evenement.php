@@ -10,9 +10,7 @@
 <body>
 	<h1>Evènements</h1>
 	<img src="/images/image3.jpeg" id="logo">
-	<div class="navbar">
-		<?php include('menu.php'); ?>
-	</div>
+	<?php include('menu.php'); ?>
 	<section>
 		
 		<?php
@@ -28,12 +26,7 @@
 
 		<?php
 				} else {
-
-					$hote = 'localhost'; 
-					$login = 'root'; 
-					$pass = 'simplon8';
-					$base = 'exo2PHP';
-					$connection = mysqli_connect($hote, $login, $pass, $base);
+					include('bdd.php');
 				 
 					$events = 'SELECT * FROM `events`';
 

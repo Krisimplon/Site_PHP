@@ -13,9 +13,7 @@ session_start();
 <body>
 	<h1>Contact</h1>
 	<img src="/images/image3.jpeg" id="logo">
-	<div class="navbar">
-		<?php include('menu.php'); ?>
-	</div>
+	<?php include('menu.php'); ?>
 	<section id="contact">
 		<h3>Contactez-nous...</h3>
 		<?php
@@ -34,11 +32,7 @@ session_start();
 		?>
 		<?php
 			if(isset($_POST['send'])) { 
-				$hote = 'localhost'; // Adresse du serveur 
-				$login = 'root'; // Login 
-				$pass = 'simplon8'; // Mot de passe 
-				$base = 'exo2PHP'; // Base de données à utiliser
-				$connection = mysqli_connect($hote, $login, $pass, $base);
+				include('bdd.php');
  
 				$objet = $_POST['objet'];
 				$message = $_POST['message'];

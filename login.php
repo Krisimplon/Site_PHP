@@ -10,9 +10,7 @@
 <body>
 	<h1>Log In</h1>
 	<img src="/images/image3.jpeg" id="logo">
-	<div class="navbar">
-		<?php include('menu.php'); ?>
-	</div>
+	<?php include('menu.php'); ?>
 	<section>
 		<h3>Créez votre compte utilisateur</h3>
 			<form method="post" action="login.php" enctype="multipart/form-data">
@@ -41,11 +39,7 @@
 			<?php
 					} 
 					else {
-						$hote = 'localhost'; // Adresse du serveur 
-						$login = 'root'; // Login 
-						$pass = 'simplon8'; // Mot de passe 
-						$base = 'exo2PHP'; // Base de données à utiliser
-						$connection = mysqli_connect($hote, $login, $pass, $base);
+						include('bdd.php');
 
 						$verif = "SELECT username FROM `login` WHERE username='$username'";
 
@@ -90,11 +84,7 @@
 
 					$yourPassCode = hash('sha512', $yourPassword);
 
-					$hote = 'localhost'; 
-					$login = 'root'; 
-					$pass = 'simplon8';
-					$base = 'exo2PHP';
-					$connection = mysqli_connect($hote, $login, $pass, $base);
+					include('bdd.php');
 				 
 					$verif = "SELECT username, password FROM `login` WHERE username='$yourUsername' AND password='$yourPassCode'";
 

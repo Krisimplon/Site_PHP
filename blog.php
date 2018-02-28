@@ -13,18 +13,12 @@ session_start();
 <body>
 	<h1>Blog</h1>
 	<img src="/images/image3.jpeg" id="logo">
-	<div class="navbar">
-		<?php include('menu.php'); ?>
-	</div>
+	<?php include('menu.php'); ?>
 	<section id="blog">
 		<div id="articles">
 			
 			<?php
-				$hote = 'localhost'; 
-				$login = 'root'; 
-				$pass = 'simplon8'; 
-				$base = 'exo2PHP'; 
-				$connection = mysqli_connect($hote, $login, $pass, $base);
+				include('bdd.php');
 
 				$articles = 'SELECT id,titre,image,intro,date FROM `blog` ORDER BY date DESC';
 				$req = mysqli_query($connection, $articles) or die('Erreur SQL !<br />'.$articles.'<br />'.mysqli_error($connection));		
