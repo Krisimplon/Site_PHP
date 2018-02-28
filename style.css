@@ -1,0 +1,151 @@
+body {
+	font-family: 'Libre Franklin', sans-serif;
+	font-weight: 400;
+}
+
+h1 {
+	position: relative;
+	margin-left: 15%;
+	font-weight: 800;
+	font-size: 50px;
+	color: #6E5862;
+	margin-bottom: 6%;
+}
+
+h3 {
+	margin-left: 10%;
+	font-weight: 700 italic;
+	font-size: 25px;
+	color: #6E5862;
+}
+
+main {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+input {
+	margin-bottom: 10px;
+	margin-left: 15px;
+}
+
+label {
+	margin-left: 15px;
+	font-weight: 600;
+}
+
+#logo {
+	height: 115px;
+	position: relative;
+	margin-top: -26%;
+	margin-left: 86%;
+	border-radius: 50%;
+} 
+
+#navbar {
+	display: flex;
+	width: 100%;
+	background-color: #6E5862;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	margin-bottom: 10px;
+	border-radius: 2%;
+}
+
+#menu {
+	display: flex;
+	list-style-type: none;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+a {
+	text-decoration: none;
+	color: white;
+	margin-right: 40px;
+	font-weight: 500;
+	font-size: 20px;
+}
+
+.textGeneral {
+	display: flex;
+	width: 90%;
+	margin-top: 20px;
+	margin-bottom: 4%;
+	margin-left: 60px;
+	text-align: justify;
+}
+
+#contact {
+	width: 80%;
+	margin-top: 20px;
+	margin-bottom: 4%;
+	margin-left: 60px;
+}
+
+#objet {
+	width: 50%;
+}
+
+#mess{
+	width: 50%;
+	margin-top: 1%;
+}
+
+#thematique {
+	width: 50%;
+}
+
+#age {
+	width: 50%;
+}
+
+button {
+	margin-top: 1%;
+	width: 15%;
+	margin-right: 5%;
+	margin-left: 15px;
+	background-color: #6E5862;
+	color: white;
+	font-size: 18px;
+	padding: 4px;
+	cursor: pointer;
+}
+
+#blog {
+	width: 100%;
+	display: flex;
+}
+
+#articles {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+}
+
+.lienArticle {
+	display: flex;
+	align-items: center;
+	color: black;
+	text-align: left;
+	margin-left: 10px;
+	margin-top: 40px;
+}
+
+.imgBlog {
+	margin-right: 5%;
+	margin-top: 25px;
+}
+
+.events {
+	margin-bottom: 40px;
+	margin-left: 10%;
+	margin-right: 10%;
+	text-align: justify;
+}
+
+.imgEvents {
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
