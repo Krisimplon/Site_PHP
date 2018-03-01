@@ -8,68 +8,15 @@
 	<title>site PHP</title>
 </head>
 <body>
-	<h1>Log In</h1>
+	<h1>Se connecter</h1>
 	<img src="/images/image3.jpeg" id="logo">
 	<?php include('menu.php'); ?>
 	<section>
-		<h3>Créez votre compte utilisateur</h3>
+		<h3>Se connecter</h3>
 			<form method="post" action="login.php" enctype="multipart/form-data">
-				<label for="username">Entrez votre nom d'utilisateur</label>
-				<input type="text" name="username" id="username" placeholder="Username" required><br>
-				<label for="password">Entrez votre mot de passe</label>
-				<input type="password" name="password" id="password" placeholder="Password" required><br>
-				<label for="passwordBis">Confirmez votre mot de passe</label>
-				<input type="password" name="passwordBis" id="passwordBis" placeholder="Password" required><br>
-				<button name="save" type="submit">Sauvergarder</button>
-			</form>
-
-			<?php
-				if(isset($_POST['save'])) { 
-					$username = $_POST['username'];
-					$password = $_POST['password'];
-					$passwordBis = $_POST['passwordBis'];
-
-					if ($password !== $passwordBis) {
-			?>
-
-			<script type="text/javascript">
-				alert("Mot de passe invalide")
-			</script>
-
-			<?php
-					} 
-					else {
-						include('bdd.php');
-
-						$verif = "SELECT username FROM `login` WHERE username='$username'";
-
-						$req = mysqli_query($connection, $verif) or die('Erreur SQL !<br />'.$verif.'<br />'.mysqli_error($connection));
-
-						if ($datas = mysqli_fetch_array($req)) {
-			?>
-
-						<script type="text/javascript">
-							alert("Cet identifiant est déjà utilisé!")
-						</script>
-
-			<?php
-						} else {
-								$passCode = hash('sha512', $_POST['password']);
-								$requete = "INSERT INTO login VALUES(NULL, '$username', '$passCode')";
-
-								$resultat = mysqli_query($connection, $requete) or die('ERREUR SQL : '. $requete . mysqli_error($connection));
-
-								echo "<br/>Vos identifiants ont bien été enregistrés";
-							}	
-					}
-				}
-			?>
-
-		<h3>Identifiez-vous</h3>
-			<form method="post" action="login.php" enctype="multipart/form-data">
-				<label for="yourUsername">Nom d'utilisateur</label>
+				<label for="yourUsername">Nom d'utilisateur :</label><br>
 				<input type="text" name="yourUsername" id="yourUsername" placeholder="Utilisateur" required><br>
-				<label for="yourPassword">Mot de passe</label>
+				<label for="yourPassword">Mot de passe :</label><br>
 				<input type="password" name="yourPassword" id="yourPassword" placeholder="Mot de passe" required><br>
 				<button name="go" type="submit">Go</button>
 			</form>
@@ -123,6 +70,8 @@
 			<?php
 				}
 			?>
+
+			<a href="new_account.php">Pas encore de compte?</a>
 	</section>
 </body>
 </html>

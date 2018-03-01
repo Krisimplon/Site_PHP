@@ -15,49 +15,56 @@
 		
 		<?php
 
-			if (empty($_SESSION['yourUsername'])) {
+			if (empty($_SESSION['yourUsername'])) { //si user non connect
 
 		?> 
 
-			<script type="text/javascript">
+			<script type="text/javascript"> //alert for user no connect and redirection
 				alert("Vous devez être connecté pour accéder aux évènements.");
 				document.location.href="login.php";
 			</script>
 
 		<?php
 				} else {
-					include('bdd.php');
-				 
-					$events = 'SELECT * FROM `events`';
+					include('bdd.php'); //connection to the bdd
 
-					$req = mysqli_query($connection, $events) or die('Erreur SQL !<br />'.$events.'<br />'.mysqli_error($connection));
-
-					while ($donnees = mysqli_fetch_array($req)) {
-
-						echo '<p class="events">';
-						echo "Titre : ".$donnees['titre']."<br/>";
-						echo '<img src="'.$donnees['image'].'"class="imgEvents" width="150px"">'."<br/>";
-						echo $donnees['intro']."<br/>";
-						echo "Date début : ".$donnees['date_deb']."<br/>";
-						echo "Date fin : ".$donnees['date_fin']."<br/>";
-						echo "Lieu : ".$donnees['lieu']."<br/>";
-						echo "Date de publication : ".$donnees['date-publi']."<br/>";
-						echo "</p>";
-					}
-
+					//1 : Select a city for the events
 					$events = 'SELECT distinct lieu FROM `events`';
 
-					$req = mysqli_query($connection, $events) or die('Erreur SQL !<br />'.$events.'<br />'.mysqli_error($connection));
+					$req = mysqli_query($connection, $events) or die('Erreur SQL !<br/>'.$events.mysqli_error($connection));
 
-					echo "<select name='lieu'>" . PHP_EOL ;
- 					echo "<option>Sélectionnez</option>" . PHP_EOL ;
+					echo '<form method="POST" action="evenement.php">';
+					echo "<select name='lieu'>";
+ 					echo "<option>Sélectionner un lieu</option>";
   
     				while ($donnees = mysqli_fetch_array($req)) {
-          				echo "<option value=".$donnees['lieu'].">".$donnees['lieu']."<option>" . PHP_EOL ;
+          				echo "<option value=".$donnees['lieu'].">".$donnees['lieu']."</option>";
           			}
           			
-     				echo "</select >" ;
-			}
+     				echo "</select >";
+     				echo "<button name='choice'>Valider</button>";
+     				echo "</form>";
+
+     				if(isset($_POST['choice'])) { 
+						$choice = $_POST['lieu'];
+
+						$events = "SELECT * FROM `events` WHERE lieu ='$choice'";
+
+						include('article_events.php');
+
+						if ($choice=="Sélectionner un lieu") {
+							$events = 'SELECT * FROM `events`';
+
+							include('article_events.php');
+						}
+
+					} else {
+						//2 : Show the events on this page
+						$events = 'SELECT * FROM `events`';
+
+						include('article_events.php');	
+					}
+               	}
 		?>
 
 	</section>
