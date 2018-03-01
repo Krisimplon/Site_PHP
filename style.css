@@ -103,8 +103,8 @@ a {
 }
 
 button {
+	width: 200px;
 	margin-top: 1%;
-	width: 15%;
 	margin-right: 5%;
 	margin-left: 15px;
 	background-color: #6E5862;
@@ -123,9 +123,11 @@ button {
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
+	margin-left: 150px;
+	width: 65%;
 }
 
-.lienArticle {
+.lienArticle { 
 	display: flex;
 	align-items: center;
 	color: black;
@@ -137,6 +139,11 @@ button {
 .imgBlog {
 	margin-right: 5%;
 	margin-top: 25px;
+	padding-right: 50px;
+	border-right-style: solid;
+	border-right-color: #6E5862;
+	border-right-width: 2px;
+
 }
 
 .events {
@@ -149,4 +156,19 @@ button {
 .imgEvents {
 	margin-top: 20px;
 	margin-bottom: 10px;
+}
+
+.formulaire {
+	display: flex;
+	flex-direction: column;
+}
+
+.form_contact {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.titleConnect {
+	margin-left: 0px !important;
 }

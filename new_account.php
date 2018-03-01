@@ -11,8 +11,8 @@
 	<h1>Créer un compte</h1>
 	<img src="/images/image3.jpeg" id="logo">
 	<?php include('menu.php'); ?>
-	<section>
-		<h3>Créez votre compte utilisateur</h3>
+	<section class="form_contact">
+		<h3 class="titleConnect">Créez votre compte utilisateur</h3>
 			<form method="post" enctype="multipart/form-data">
 				<label for="username">Entrez votre nom d'utilisateur :</label><br>
 				<input type="text" name="username" id="username" placeholder="Username" required><br>

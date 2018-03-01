@@ -26,13 +26,23 @@ session_start();
 				$req = mysqli_query($connection, $articles) or die('Erreur SQL !<br />'.$articles.'<br />'.mysqli_error($connection));
 
 				if ($datas = mysqli_fetch_array($req)) {
-						echo '<img src="'.$datas['image'].'"class="imgBlog" width="150px"">'."<br/>";
-						echo $datas['titre']."<br/>";
-						echo $datas['intro']."<br/>";
-						echo $datas['texte']."<br/>";
-						echo $datas['date']."<br/>";
+
+					if (!empty($_SESSION['yourUsername'])) {
+							if ($_SESSION['yourUsername'] == $datas['auteur']) {
+								echo '<form action="modif_blog.php">';
+								echo '<button name="id" value="'.$datas['id'].'">Modifier</button>';
+								echo "</form>";
+							}
+						}
+
+					echo '<img src="'.$datas['image'].'"class="imgBlog" width="150px"">'."<br/>";
+					echo $datas['titre']."<br/>";
+					echo $datas['intro']."<br/>";
+					echo $datas['texte']."<br/>";
+					echo $datas['date']."<br/>";
+					echo $datas['auteur']."<br/>";
 				}
-			}		
+			}	
 		?>
 	</section>
 </body>

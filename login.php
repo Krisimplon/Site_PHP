@@ -11,8 +11,10 @@
 	<h1>Se connecter</h1>
 	<img src="/images/image3.jpeg" id="logo">
 	<?php include('menu.php'); ?>
-	<section>
-		<h3>Se connecter</h3>
+	<a href="new_account.php">Pas encore de compte?</a>
+	<section class="form_contact">
+		<h3 class="titleConnect">Se connecter</h3>
+		<div class="formulaire">
 			<form method="post" action="login.php" enctype="multipart/form-data">
 				<label for="yourUsername">Nom d'utilisateur :</label><br>
 				<input type="text" name="yourUsername" id="yourUsername" placeholder="Utilisateur" required><br>
@@ -23,6 +25,7 @@
 			<form method="post" action="login.php" enctype="multipart/form-data">
 				<button name="deconnect">Déconnexion</button>
 			</form>
+		</div>
 			
 			<?php
 				if(isset($_POST['go'])) { 
@@ -71,7 +74,6 @@
 				}
 			?>
 
-			<a href="new_account.php">Pas encore de compte?</a>
 	</section>
 </body>
 </html>

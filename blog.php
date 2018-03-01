@@ -14,25 +14,45 @@ session_start();
 	<h1>Blog</h1>
 	<img src="/images/image3.jpeg" id="logo">
 	<?php include('menu.php'); ?>
-	<section id="blog">
+	<section>
 		<div id="articles">
-			
-			<?php
-				include('bdd.php');
+			<form method="POST" action="blog.php">
+				<select name="dates">
+	 				<option>Tri par dates</option>
+	        		<option>Décroissantes</option>
+	        		<option>Croissantes</option>
+	     		</select >
+	     		<button name="choice">Valider</button>
+	     	</form>
+		</div>
 
-				$articles = 'SELECT id,titre,image,intro,date FROM `blog` ORDER BY date DESC';
-				$req = mysqli_query($connection, $articles) or die('Erreur SQL !<br />'.$articles.'<br />'.mysqli_error($connection));		
-				while ($donnees = mysqli_fetch_array($req)) {
-					echo '<a href="article_blog.php?id='.$donnees['id'].'" class="lienArticle">';
-					echo '<img src="'.$donnees['image'].'"class="imgBlog" width="150px"">'."<br/>";
-					echo $donnees['titre']."<br/>";
-					echo $donnees['intro']."<br/>";
-					echo $donnees['date']."<br/>";
-					echo '</a>';
+		<div id="newBlog">
+			<form action="new_blog.php">
+				<button name="newB">Ajouter un article</button>
+			</form>
+		</div>
+	
+			<?php
+
+				include('bdd.php'); 
+
+				if (!isset($_POST['choice'])) {
+					$articles = 'SELECT id,titre,image,intro,date FROM `blog` ORDER BY date DESC';
+					include('show_artBlog.php');
+				}
+
+				//affichage par ordre croissant
+				if(isset($_POST['choice'])) { 
+					if ($_POST['dates']==="Croissantes") {
+						$articles = 'SELECT id,titre,image,intro,date FROM `blog` ORDER BY date ASC';
+						include('show_artBlog.php');
+					} else if ($_POST['dates']==="Décroissantes") {
+						$articles = 'SELECT id,titre,image,intro,date FROM `blog` ORDER BY date DESC';
+						include('show_artBlog.php');
+					}
 				}
 			?>
 
-		</div>
 	</section>
 </body>
 </html>
